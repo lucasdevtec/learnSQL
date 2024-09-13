@@ -85,3 +85,51 @@ WHERE report_code LIKE 'A%';
 SELECT *
 FROM station_data
 WHERE report_code LIKE '%FC%';
+
+SELECT *
+FROM station_data
+WHERE tornado = 1 AND hail = 1;
+
+SELECT *
+FROM station_data
+WHERE tornado AND hail;
+
+SELECT *
+FROM station_data
+WHERE NOT rain AND hail;
+
+
+SELECT *
+FROM station_data
+WHERE snow_depth IS NULL;
+
+SELECT *
+FROM station_data
+WHERE snow_depth IS NOT NULL;
+
+SELECT *
+FROM station_data
+WHERE snow_depth;
+
+SELECT *
+FROM station_data
+WHERE precipitation <= 0.5;
+
+SELECT *
+FROM station_data
+WHERE precipitation IS NULL OR precipitation <= 0.5;
+
+SELECT *
+FROM station_data
+WHERE coalesce(precipitation, 0) <= 0.5;
+
+SELECT coalesce(precipitation, 'Not Af') AS rainfall
+FROM STATION_DATA;
+
+SELECT *
+FROM station_data
+WHERE rain = 1 AND temperature <= 32 OR snow_depth > 0;
+
+SELECT *
+FROM station_data
+WHERE (rain = 1 AND temperature <= 32) OR snow_depth > 0;
